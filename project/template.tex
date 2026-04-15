@@ -1,0 +1,195 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[top=1in, bottom=1in, left=1.5in, right=1in]{geometry}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{titlesec}
+
+% Change "Contents" to "CONTENTS OF SYNOPSIS" and format the TOC
+\renewcommand{\contentsname}{\centering CONTENTS OF SYNOPSIS}
+
+% Format section titles
+\titleformat{\section}[block]{\normalfont\Large\bfseries\centering}{\thesection.}{0.5em}{}
+
+% Redefine section numbering to just be 1, 2, 3 instead of 0.1, 0.2 (since we removed chapters)
+\renewcommand{\thesection}{\arabic{section}}
+
+\tolerance=1000
+\emergencystretch=3em
+
+\onehalfspacing
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\thepage\ $|$ \small PROJECT TITLE}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[L]{\thepage\ $|$ \small PROJECT TITLE}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{1.5cm}
+
+{\fontsize{18}{22}\selectfont \textbf{PROJECT TITLE IN CAPS}}
+
+\vspace{1.5cm}
+
+{\fontsize{14}{16}\selectfont A MINI PROJECT SYNOPSIS SUBMITTED}\\
+\vspace{0.2cm}
+{\fontsize{14}{16}\selectfont IN PARTIAL FULFILLMENT OF THE REQUIREMENTS}\\
+\vspace{0.2cm}
+{\fontsize{14}{16}\selectfont FOR THE AWARD OF DEGREE OF}\\
+\vspace{1cm}
+
+{\fontsize{16}{18}\selectfont \textbf{BACHELOR OF TECHNOLOGY}}\\
+\vspace{0.2cm}
+{\fontsize{14}{16}\selectfont In}\\
+\vspace{0.2cm}
+{\fontsize{16}{18}\selectfont \textbf{COMPUTER SCIENCE AND ENGINEERING}}
+
+\vspace{1.5cm}
+
+{\fontsize{14}{16}\selectfont \textbf{SUBMITTED BY}}\\
+\vspace{0.5cm}
+{\fontsize{14}{16}\selectfont Student Name 1 (Roll Number: XXXX)}\\
+\vspace{0.2cm}
+{\fontsize{14}{16}\selectfont Student Name 2 (Roll Number: XXXX)}\\
+\vspace{0.2cm}
+{\fontsize{14}{16}\selectfont Student Name 3 (Roll Number: XXXX)}
+
+\vspace{0.8cm}
+\includegraphics[width=6cm]{logo.png}
+\vspace{0.8cm}
+
+{\fontsize{14}{16}\selectfont \textbf{SUBMITTED TO}}\\
+\vspace{0.5cm}
+{\fontsize{14}{16}\selectfont \textbf{Department of Computer Science and Engineering}}\\
+\vspace{0.2cm}
+{\fontsize{14}{16}\selectfont \textbf{Model Institute of Engineering and Technology (Autonomous)}}\\
+\vspace{0.2cm}
+{\fontsize{14}{16}\selectfont \textbf{Jammu, India}}
+
+\vspace{1.5cm}
+
+{\fontsize{16}{18}\selectfont \textbf{2026}}
+
+\end{center}
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Project Overview}
+% Write your project overview here.
+
+\section{Problem Statement}
+% Write your problem statement here.
+
+\section{Objectives of the Project}
+\begin{itemize}
+\item \textbf{Objective 1:} Description here.
+\item \textbf{Objective 2:} Description here.
+\item \textbf{Objective 3:} Description here.
+\end{itemize}
+
+\section{Proposed Solution / Methodology}
+% Describe your proposed solution and methodology here.
+% Include architecture diagrams using:
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=\textwidth]{diagram.png}
+% \caption{System Architecture}
+% \end{figure}
+
+\section{Key Technologies and Tools}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4.5cm}|p{10cm}|}
+\toprule
+\textbf{Tool} & \textbf{Description} \\
+\midrule
+Tool 1 & Description \\
+\midrule
+Tool 2 & Description \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{V.E.T.S Justification}
+
+\vspace{0.3cm}
+\noindent \textbf{V - Viability}\\
+% Explain feasibility here.
+
+\vspace{0.5cm}
+\noindent \textbf{E - Engineering Depth}\\
+% Explain engineering depth here.
+
+\vspace{0.5cm}
+\noindent \textbf{T - Trend Alignment}\\
+% Explain trend alignment here.
+
+\vspace{0.5cm}
+\noindent \textbf{S - Social / Industrial Impact}\\
+% Explain social/industrial impact here.
+
+\section{Expected Outcomes}
+\begin{itemize}
+\item Expected outcome 1.
+\item Expected outcome 2.
+\item Expected outcome 3.
+\end{itemize}
+
+\section{Implementation Timeline}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{2cm}|p{12.5cm}|}
+\toprule
+\textbf{Phase} & \textbf{Activity} \\
+\midrule
+Phase 1 & Problem analysis and requirement study \\
+\midrule
+Phase 2 & System design and architecture \\
+\midrule
+Phase 3 & Implementation and module development \\
+\midrule
+Phase 4 & Testing and evaluation \\
+\midrule
+Phase 5 & Documentation and final presentation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\renewcommand{\bibname}{\centering \normalfont\Large\bfseries 9. References}
+\begin{thebibliography}{99}
+
+\bibitem{ref1}
+Author, ``Title,'' [Online]. Available: \url{https://example.com}
+
+\end{thebibliography}
+
+\end{document}

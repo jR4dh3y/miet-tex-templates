@@ -1,0 +1,274 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[top=1in, bottom=1in, left=1.5in, right=1in]{geometry}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,fit,backgrounds}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+% Allow slightly looser spacing to avoid overfull boxes
+\tolerance=1000
+\emergencystretch=3em
+
+% Line spacing
+\onehalfspacing
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\thepage\ $|$ \small SEMINAR TITLE}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Apply same footer style to plain pages (chapter opening pages)
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[L]{\thepage\ $|$ \small SEMINAR TITLE}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\begin{document}
+
+% Title Page (No page number)
+\begin{titlepage}
+\begin{center}
+\vspace*{1cm}
+
+{\fontsize{18}{22}\selectfont \textbf{SEMINAR TITLE IN CAPS}}
+
+\vspace{1.5cm}
+
+{\fontsize{12}{14}\selectfont A SEMINAR REPORT SUBMITTED}\\
+
+{\fontsize{12}{14}\selectfont IN PARTIAL FULFILLMENT OF THE REQUIREMENTS}\\
+{\fontsize{12}{14}\selectfont FOR THE AWARD OF DEGREE OF}\\
+\vspace{1cm}
+
+{\fontsize{14}{16}\selectfont \textbf{BACHELOR OF TECHNOLOGY}}\\
+{\fontsize{12}{14}\selectfont In}\\
+{\fontsize{14}{16}\selectfont \textbf{Computer Science \& Engineering}}
+
+\vspace{1.5cm}
+
+{\fontsize{14}{16}\selectfont \textbf{SUBMITTED BY}}\\
+\vspace{0.5cm}
+{\fontsize{14}{16}\selectfont Student Name}\\
+{\fontsize{14}{16}\selectfont Roll Number: XXXX}
+
+\vspace{1cm}
+
+\includegraphics[width=8cm]{logo.png}
+
+\vspace{1cm}
+
+{\fontsize{14}{16}\selectfont \textbf{SUBMITTED TO Faculty Name}}\\
+\vspace{0.5cm}
+{\fontsize{12}{14}\selectfont Department of Computer Science \& Engineering}\\
+{\fontsize{12}{14}\selectfont Model Institute of Engineering and Technology (Autonomous)}\\
+{\fontsize{12}{14}\selectfont Jammu, India}
+
+\vspace{1.5cm}
+
+{\fontsize{16}{18}\selectfont \textbf{2026}}
+
+\end{center}
+\end{titlepage}
+
+% Candidate's Declaration (Page i)
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\chapter*{CANDIDATES' DECLARATION}
+\addcontentsline{toc}{chapter}{Candidates' Declaration}
+
+I, \textbf{Student Name}, Roll Number \textbf{XXXX}, hereby declare that the work which is being presented in the seminar report entitled, ``\textbf{Seminar Title}'' in partial fulfillment of requirement for the award of degree of B.Tech (Computer Science \& Engineering) and submitted in the Department of Computer Science \& Engineering, Model Institute of Engineering and Technology (Autonomous), Jammu is an authentic record of my own work carried by me. The matter presented in this seminar report has not been submitted in this or any other University / Institute for the award of B.Tech Degree.
+
+\vspace{3cm}
+
+\begin{flushright}
+\rule{6cm}{0.4pt}\\
+Signature of the Student\\
+\textbf{Student Name}\\
+Roll Number: XXXX\\
+\vspace{0.5cm}
+Dated: DD Month YYYY
+\end{flushright}
+
+\newpage
+
+% Acknowledgements (Page ii)
+\chapter*{ACKNOWLEDGEMENTS}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+Seminar work is an important aspect in the field of engineering, where contribution is made by many persons and organizations. The present shape of this work has come forth after contributions from different spheres.
+
+I would like to express my sincere gratitude to the Model Institute of Engineering and Technology (Autonomous), Jammu for providing me with the opportunity to work on this seminar as part of my academic curriculum. This Seminar has been a valuable learning experience, and I am grateful for the guidance and support I received throughout its duration.
+
+I extend my heartfelt thanks to Prof. (Dr.) Ankur Gupta (Director MIET), Dr. Navin Mani Upadhyay (HOD, CSE) and Seminar Coordinator for their continuous encouragement and mentorship. Their insights and guidance have been invaluable in shaping my understanding and approach.
+
+I am especially grateful to my faculty mentor, \textbf{Faculty Name}, for expert guidance, constructive feedback, and continuous support throughout this seminar.
+
+I am also thankful to the faculty members who supported me and provided valuable inputs. Their expertise and dedication have been instrumental in my professional development.
+
+Furthermore, I would like to acknowledge the support of my parents, whose unwavering encouragement and support have been a constant source of motivation for me.
+
+Lastly, I am grateful to my peers and colleagues for their collaboration and camaraderie throughout this journey. Their teamwork and camaraderie have made this experience truly enriching.
+
+\vspace{2cm}
+
+\begin{flushright}
+\textbf{Student Name}\\
+Roll Number: XXXX
+\end{flushright}
+
+\newpage
+
+% Abstract (Page iii)
+\chapter*{ABSTRACT}
+\addcontentsline{toc}{chapter}{Abstract}
+
+% Write your abstract here.
+
+\textbf{Keywords:} Keyword1, Keyword2, Keyword3
+
+\newpage
+
+% Table of Contents (Page iv)
+\tableofcontents
+
+\newpage
+
+% List of Tables
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+\newpage
+
+% List of Figures
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\newpage
+
+% Abbreviations
+\chapter*{ABBREVIATIONS USED}
+\addcontentsline{toc}{chapter}{Abbreviations Used}
+
+\begin{tabular}{@{}l@{\hspace{1.5cm}}l@{}}
+ABBR1 & Full Form 1 \\
+ABBR2 & Full Form 2 \\
+ABBR3 & Full Form 3 \\
+\end{tabular}
+
+\newpage
+
+% Main Body - Arabic numerals
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 1: INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{INTRODUCTION}
+\label{chap:introduction}
+
+\section{Background}
+% Write background here.
+
+\section{Problem Statement}
+% Write problem statement here.
+
+\section{Motivation}
+% Write motivation here.
+
+\section{Objectives}
+% Write objectives here.
+
+\section{Scope of the Seminar}
+% Write scope here.
+
+\section{Organization of the Report}
+% Write organization here.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 2: LITERATURE REVIEW
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{LITERATURE REVIEW}
+\label{chap:literature}
+
+% Write literature review here.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 3: TECHNICAL APPROACHES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{TECHNICAL APPROACHES}
+\label{chap:technical}
+
+% Write technical approaches here.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 4: EXISTING PROTOTYPES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{EXISTING PROTOTYPES}
+\label{chap:prototypes}
+
+% Write about existing prototypes/models here.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 5: APPLICATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{APPLICATIONS}
+\label{chap:applications}
+
+% Write about real-world applications here.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHAPTER 6: CONCLUSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{CONCLUSION}
+\label{chap:conclusion}
+
+\section{Summary}
+% Summarize key findings.
+
+\section{Limitations}
+% Discuss limitations.
+
+\section{Future Directions}
+% Explore future research directions.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REFERENCES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+
+\bibitem{ref1}
+Author, ``Title,'' [Online]. Available: \url{https://example.com}
+
+\end{thebibliography}
+
+\end{document}
