@@ -1,0 +1,673 @@
+% ============================================================================
+%  MIET Mini Project Report Template (COM-612)
+%  LaTeX variant of: UPDATED_Mini_Project_Report_Format_MIET
+%  Department of Computer Science and Engineering
+%  Model Institute of Engineering and Technology (Autonomous), Jammu
+% ============================================================================
+
+\documentclass[12pt,a4paper]{report}
+
+% ---------- PACKAGES ----------
+\usepackage[top=1in, bottom=1in, left=1.5in, right=1in]{geometry}
+\usepackage{times}                % Times New Roman throughout
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{setspace}             % 1.5 line spacing
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{tocloft}              % Customise TOC/LOT/LOF
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{indentfirst}          % First-line indent in every paragraph
+\usepackage{etoolbox}
+
+% ---------- COVER PAGE COLORS ----------
+\definecolor{mietblue}{RGB}{44,63,113}
+\definecolor{mietgold}{RGB}{192,146,45}
+
+% ---------- USER-CONFIGURABLE FIELDS ----------
+% >>>  Fill in these commands once; they propagate everywhere  <<<
+\newcommand{\projecttitle}{TITLE OF THE PROJECT}
+\newcommand{\studentA}{Name of Candidate 1}
+\newcommand{\rollA}{XXXX}
+\newcommand{\studentB}{Name of Candidate 2}
+\newcommand{\rollB}{XXXX}
+\newcommand{\studentC}{Name of Candidate 3}       % leave blank if only 2
+\newcommand{\rollC}{XXXX}
+\newcommand{\supervisor}{Supervisor Name}
+\newcommand{\supervisordesig}{Designation, Computer Science and Engineering}
+\newcommand{\cosupervisor}{Co-Supervisor Name}     % leave blank if none
+\newcommand{\cosupervisordesig}{Designation, Department, Institute}
+\newcommand{\hodname}{Prof.\ ABC}
+\newcommand{\academicyear}{2025\,--\,2026}
+\newcommand{\submissionyear}{2026}
+\newcommand{\projectperiod}{February 2026\,--\,May 2026}
+\newcommand{\department}{Computer Science and Engineering}
+\newcommand{\institute}{Model Institute of Engineering and Technology (Autonomous)}
+\newcommand{\instituteloc}{Kot Bhalwal, Jammu, India}
+\newcommand{\naac}{(NAAC ``A'' Grade Accredited)}
+
+% ---------- SPACING ----------
+\onehalfspacing
+\setlength{\parindent}{15pt}
+
+% ---------- TOLERANCE ----------
+\tolerance=1000
+\emergencystretch=3em
+
+% ---------- CAPTION FORMATTING ----------
+% 10 pt, Bold label + plain title
+\captionsetup[table]{font=small, labelfont=bf, position=above}
+\captionsetup[figure]{font=small, labelfont=bf, position=below}
+
+% ---------- CHAPTER / SECTION TITLE FORMATTING ----------
+% Chapter number: 16 pt Bold Sentence Case; Chapter title: 16 pt Bold ALL CAPS
+\titleformat{\chapter}[display]
+  {\normalfont\fontsize{16}{19}\bfseries\centering}
+  {Chapter \thechapter}{0.5em}{\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+
+% Section: 12 pt Bold
+\titleformat{\section}[block]
+  {\normalfont\fontsize{12}{14}\bfseries}{\thesection}{0.5em}{}
+
+% Sub-section: 12 pt Bold
+\titleformat{\subsection}[block]
+  {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{0.5em}{}
+
+% ---------- EQUATION NUMBERING: (chapter.eq) ----------
+\numberwithin{equation}{chapter}
+
+% ---------- HEADER / FOOTER ----------
+% Chapter pages: Arabic numerals, bottom-left, project title in footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\thepage\ $|$ \small \projecttitle}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[L]{\thepage\ $|$ \small \projecttitle}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+}
+
+% Front-matter footer (roman numerals, no project title)
+\fancypagestyle{frontmatter}{%
+  \fancyhf{}%
+  \fancyfoot[L]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+}
+
+% Empty page style for title page
+\fancypagestyle{titlepage}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% ---------- COVER PAGE HELPERS ----------
+\newcommand{\coverrule}{\color{mietgold}\rule{0.78\textwidth}{0.8pt}}
+
+% ---------- TOC FORMATTING ----------
+\renewcommand{\contentsname}{\centering TABLE OF CONTENTS}
+\renewcommand{\listtablename}{\centering LIST OF TABLES}
+\renewcommand{\listfigurename}{\centering LIST OF FIGURES}
+
+% ---------- HYPERLINK SETUP ----------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue,
+}
+
+\begin{document}
+
+% ======================= TITLE PAGE =========================================
+\begin{titlepage}
+\thispagestyle{titlepage}
+\begin{center}
+
+\vspace*{0.85cm}
+
+{\coverrule}
+
+\vspace{0.7cm}
+
+{\fontsize{18}{22}\selectfont \textbf{\textcolor{mietblue}{\projecttitle}}}
+
+\vspace{0.7cm}
+
+{\coverrule}
+
+\vspace{0.85cm}
+
+{\fontsize{14}{17}\selectfont \textbf{A MINI PROJECT REPORT SUBMITTED}}\\[0.15cm]
+{\fontsize{14}{17}\selectfont \textbf{IN PARTIAL FULFILLMENT OF THE REQUIREMENTS FOR THE}}\\[0.15cm]
+{\fontsize{14}{17}\selectfont \textbf{MINI PROJECT (COM-612)}}
+
+\vspace{0.75cm}
+
+{\fontsize{16}{19}\selectfont \textbf{\textcolor{mietblue}{BACHELOR OF TECHNOLOGY}}}\\[0.2cm]
+{\fontsize{14}{17}\selectfont in}\\[0.2cm]
+{\fontsize{16}{19}\selectfont \textbf{\textcolor{mietblue}{Computer Science and Engineering}}}\\[0.15cm]
+{\fontsize{14}{17}\selectfont SEMESTER VI}
+
+\vspace{0.75cm}
+
+{\fontsize{12}{14}\selectfont \textbf{SUBMITTED BY}}\\[0.18cm]
+{\fontsize{12}{14}\selectfont \studentA}\\[0.06cm]
+{\fontsize{12}{14}\selectfont Roll Number(s): \rollA}
+
+\vspace{0.45cm}
+
+{\fontsize{12}{14}\selectfont \textbf{UNDER THE SUPERVISION OF}}\\[0.14cm]
+{\fontsize{12}{14}\selectfont \supervisor}\\[0.06cm]
+{\fontsize{12}{14}\selectfont \supervisordesig}
+
+\vspace{0.35cm}
+
+\includegraphics[width=5.7cm]{logo.png}
+
+\vspace{0.35cm}
+
+{\fontsize{12}{14}\selectfont \textbf{SUBMITTED TO}}\\[0.1cm]
+{\fontsize{12}{14}\selectfont Department of \department}\\[0.04cm]
+{\fontsize{12}{14}\selectfont \textbf{\textcolor{mietblue}{\institute}}}\\[0.04cm]
+{\fontsize{12}{14}\selectfont \instituteloc}\\[0.04cm]
+{\fontsize{12}{14}\selectfont \naac}
+
+\vspace{0.05cm}
+
+{\fontsize{12}{14}\selectfont \textbf{\submissionyear}}
+
+\end{center}
+\end{titlepage}
+
+% ======================= FRONT MATTER =======================================
+\pagenumbering{roman}
+\setcounter{page}{1}
+\pagestyle{frontmatter}
+
+% --------------- CANDIDATE'S DECLARATION -----------------------------------
+\newpage
+\begin{center}
+{\fontsize{16}{19}\selectfont \textbf{CANDIDATE'S DECLARATION}}
+\end{center}
+\addcontentsline{toc}{chapter}{Candidate's Declaration}
+
+\vspace{1cm}
+
+\noindent
+I/We, \textbf{\studentA}, bearing Roll Number(s) \textbf{\rollA}, hereby declare that
+the mini project entitled ``\textbf{\projecttitle}'', submitted in partial fulfillment
+of the requirements of the Mini Project (COM-612) course of the VI Semester B.Tech.\
+\department\ programme, Department of \department, \institute, Jammu, is an
+authentic record of my/our own work carried out under the supervision of
+\textbf{\supervisor}, \supervisordesig, and \textbf{\cosupervisor}, \cosupervisordesig.
+
+\vspace{0.5cm}
+
+\noindent
+I/We further declare that this work has not been copied from any unauthorized source
+and has not been submitted, wholly or in part, for the award of any other academic
+qualification in this or any other institution.
+
+\vspace{2cm}
+
+\noindent
+\begin{tabbing}
+\hspace{8cm} \= \kill
+Signature of the Student \> Dated: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{tabbing}
+
+\vspace{0.3cm}
+\noindent Name(s): \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\[0.2cm]
+Roll Number(s): \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\\[0.2cm]
+Department: \department\\[0.2cm]
+Institute: \institute, Jammu
+
+\vspace{1cm}
+\hfill Ref.\ No.: \_\_\_\_\_\_\_\_\_\_\_\_\hspace{1cm}Date: \_\_\_\_\_\_\_\_\_\_\_\_
+
+% --------------- CERTIFICATE -----------------------------------------------
+\newpage
+\begin{center}
+\vspace*{2cm}
+{\fontsize{16}{19}\selectfont \textbf{CERTIFICATE}}
+\end{center}
+\addcontentsline{toc}{chapter}{Certificate}
+
+\vspace{1cm}
+
+\noindent
+Certified that this mini project report entitled ``\textbf{\projecttitle}'' is the
+bonafide work of ``\textbf{\studentA, Roll No.\ \rollA}'', of 6\textsuperscript{th}
+Semester, \department, \institute, Jammu, who carried out the mini project work for the
+course Mini Project (COM-612) under my/our supervision during \projectperiod.
+
+\vspace{2cm}
+
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+(\supervisor)\\
+Supervisor\\
+\supervisordesig\\
+CSE Department, MIET
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+(\cosupervisor)\\
+Co-Supervisor\\
+\cosupervisordesig\\
+CSE Department, MIET
+\end{minipage}
+
+\vspace{2cm}
+
+\noindent
+This is to certify that the above statement is correct to the best of our knowledge.
+
+\vspace{1.5cm}
+
+\noindent
+\hodname\\
+HoD / Head PRC Committee\\
+CSE Department, MIET
+
+% --------------- ABSTRACT ---------------------------------------------------
+\newpage
+\begin{center}
+{\fontsize{16}{19}\selectfont \textbf{ABSTRACT}}
+\end{center}
+\addcontentsline{toc}{chapter}{Abstract}
+
+\vspace{1cm}
+
+\noindent
+% >>> WRITE YOUR ABSTRACT HERE <<<
+The abstract is a precise summary of the complete work presented in the Mini Project.
+It should be concise yet informative, providing an overview of the problem addressed,
+the methodology employed, the key results obtained, and the conclusions drawn.
+Written in 1.5 line spacing, paragraph format, not exceeding one page.
+Avoid citations, figures, and unexplained abbreviations.
+
+% --------------- TABLE OF CONTENTS ------------------------------------------
+\newpage
+\tableofcontents
+
+% --------------- LIST OF TABLES ---------------------------------------------
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% --------------- LIST OF FIGURES --------------------------------------------
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+% --------------- ABBREVIATIONS (optional) -----------------------------------
+\newpage
+\begin{center}
+{\fontsize{16}{19}\selectfont \textbf{ABBREVIATIONS}}
+\end{center}
+\addcontentsline{toc}{chapter}{Abbreviations}
+
+\vspace{1cm}
+
+\noindent
+\begin{longtable}{@{} p{3cm} p{11cm} @{}}
+\textbf{Abbreviation} & \textbf{Full Form} \\
+\midrule
+\endhead
+% >>> ADD YOUR ABBREVIATIONS HERE <<<
+MIET  & Model Institute of Engineering and Technology \\
+CSE   & Computer Science and Engineering \\
+\end{longtable}
+
+% ======================= MAIN MATTER ========================================
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+% ========================= CHAPTER 1 =======================================
+\chapter{Introduction}
+\label{ch:introduction}
+
+% >>> WRITE CHAPTER 1 CONTENT HERE <<<
+% Key Content: Background, motivation, objectives, scope, organization of report
+
+\section{Background}
+% Provide the background context of your project.
+
+\section{Motivation}
+% Explain why this project is important and what motivated you.
+
+\section{Objectives}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Objective 1:} Description here.
+  \item \textbf{Objective 2:} Description here.
+  \item \textbf{Objective 3:} Description here.
+\end{itemize}
+
+\section{Scope of the Project}
+% Define the scope and boundaries of your work.
+
+\section{Organization of the Report}
+% Briefly describe what each chapter covers.
+
+% ========================= CHAPTER 2 =======================================
+\chapter{Literature Survey \& Problem Formulation}
+\label{ch:literature}
+
+% Key Content: Review of existing work, research gaps, problem statement,
+%              objectives, methodology overview
+
+\section{Literature Review}
+% Discuss existing work and prior research.
+
+\section{Research Gaps}
+% Identify gaps in the current body of knowledge.
+
+\section{Problem Statement}
+% Clearly state the problem you are addressing.
+
+\section{Objectives}
+% List the specific objectives derived from the problem statement.
+
+\section{Methodology Overview}
+% Provide a brief overview of the methodology adopted.
+
+% ========================= CHAPTER 3 =======================================
+\chapter{System Design / Methodology}
+\label{ch:design}
+
+% Key Content: Architecture, design decisions, tools & technologies, flowcharts
+
+\section{System Architecture}
+% Describe the overall architecture of your system.
+% Include architecture diagrams:
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=\textwidth]{architecture.png}
+%   \caption{System Architecture}
+%   \label{fig:architecture}
+% \end{figure}
+
+\section{Design Decisions}
+% Explain key design choices and trade-offs.
+
+\section{Tools and Technologies}
+\begin{table}[H]
+\centering
+\caption{Tools and Technologies Used}
+\label{tab:tools}
+\begin{tabular}{|p{4.5cm}|p{10cm}|}
+\hline
+\textbf{Tool / Technology} & \textbf{Description} \\
+\hline
+Tool 1 & Description of Tool 1 \\
+\hline
+Tool 2 & Description of Tool 2 \\
+\hline
+Tool 3 & Description of Tool 3 \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Flowcharts}
+% Include flowcharts describing the process flow.
+
+% ========================= CHAPTER 4 =======================================
+\chapter{Implementation}
+\label{ch:implementation}
+
+% Key Content: Development details, algorithms, code snippets, datasets, simulation
+
+\section{Development Environment}
+% Describe the development setup.
+
+\section{Algorithms}
+% Describe the core algorithms used.
+% Example equation:
+% \begin{equation}
+%   E = mc^{2}
+%   \label{eq:example}
+% \end{equation}
+
+\section{Code Snippets}
+% Include key code snippets (use \texttt{verbatim} or \texttt{listings} package).
+
+\section{Datasets}
+% Describe the datasets used, if any.
+
+% ========================= CHAPTER 5 =======================================
+\chapter{Results \& Discussion}
+\label{ch:results}
+
+% Key Content: Experimental results, analysis, comparisons, graphs, tables
+
+\section{Experimental Setup}
+% Describe the experimental environment and parameters.
+
+\section{Results}
+% Present results with figures and tables.
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{result_graph.png}
+%   \caption{Result Graph}
+%   \label{fig:result}
+% \end{figure}
+
+\section{Analysis and Discussion}
+% Analyze and interpret the results.
+
+\section{Comparison with Existing Work}
+% Compare your results with prior approaches.
+
+% ========================= CHAPTER 6 =======================================
+\chapter{Conclusion \& Future Scope}
+\label{ch:conclusion}
+
+% Key Content: Summary, conclusions, limitations, future directions
+
+\section{Summary}
+% Summarize the work done in this project.
+
+\section{Conclusions}
+% State the key conclusions drawn from the project.
+
+\section{Limitations}
+% Discuss any limitations of the current work.
+
+\section{Future Scope}
+% Suggest possible directions for future work.
+
+% ======================= REFERENCES =========================================
+\renewcommand{\bibname}{\centering References}
+\addcontentsline{toc}{chapter}{References}
+\begin{thebibliography}{99}
+
+\bibitem{ref1}
+Author Name, ``Title of Paper,'' \textit{Journal/Conference Name}, vol.~XX, no.~X,
+pp.~XX--XX, Year.
+
+\bibitem{ref2}
+Author Name, ``Title of Online Resource,'' [Online].
+Available: \url{https://example.com}. [Accessed: DD-Mon-YYYY].
+
+\end{thebibliography}
+
+% ======================= APPENDICES =========================================
+\appendix
+
+\chapter{Title / Derivations}
+\label{app:derivations}
+% Include relevant derivations or supplementary material.
+
+\chapter{Source Code}
+\label{app:code}
+% Include source code if applicable.
+% Consider using the listings package for formatted code:
+% \usepackage{listings}
+% \lstset{language=Python, basicstyle=\ttfamily\small, breaklines=true}
+% \begin{lstlisting}
+% def hello():
+%     print("Hello, World!")
+% \end{lstlisting}
+
+\chapter{Data Sheets / Component List}
+\label{app:datasheets}
+% Include any data sheets or component lists.
+
+\chapter{Publications}
+\label{app:publications}
+% List any publications arising from this work, if any.
+
+% ======================= EVALUATION SHEET ===================================
+\newpage
+\thispagestyle{empty}
+\pagenumbering{gobble}
+
+\begin{center}
+{\fontsize{14}{17}\selectfont \textbf{\institute}}\\[0.15cm]
+{\fontsize{12}{14}\selectfont \instituteloc}\\[0.1cm]
+{\fontsize{12}{14}\selectfont \naac}
+
+\vspace{0.8cm}
+
+{\fontsize{16}{19}\selectfont \textbf{MINI PROJECT (COM-612) -- FINAL EVALUATION SHEET}}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\textbf{Project Title}       & \projecttitle \\ \hline
+\textbf{Student Name(s)}     & \studentA     \\ \hline
+\textbf{Roll Number(s)}      & \rollA        \\ \hline
+\textbf{Branch / Semester}   & CSE -- 6\textsuperscript{th} Semester \\ \hline
+\textbf{Academic Year}       & \academicyear \\ \hline
+\textbf{Supervisor Name}     & \supervisor   \\ \hline
+\textbf{Co-Supervisor Name}  & \cosupervisor\ (if applicable) \\ \hline
+\textbf{Evaluation Date}     &               \\ \hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+\subsection*{Evaluation Criteria (FOR THE DEPARTMENT)}
+
+\begin{tabularx}{\textwidth}{|c|X|c|c|}
+\hline
+\textbf{S.No.} & \textbf{Criteria} & \textbf{Max Marks} & \textbf{Marks Obtained} \\
+\hline
+1 & Project Report Quality (Structure, formatting, writing, completeness) & & \\ \hline
+2 & Technical Content (Depth of work, accuracy, use of concepts) & & \\ \hline
+3 & Implementation / Demonstration (Functionality, working prototype/output) & & \\ \hline
+4 & Presentation \& Communication (Clarity, confidence, slide/demo delivery) & & \\ \hline
+5 & Viva Voce (Answers to questions, depth of understanding) & & \\ \hline
+6 & Innovation \& Problem Solving (Novelty, practical impact, creativity) & & \\ \hline
+\multicolumn{2}{|r|}{\textbf{TOTAL}} & & \\ \hline
+\end{tabularx}
+
+\vspace{0.8cm}
+
+\subsection*{Examiner's Remarks}
+
+\vspace{1.5cm}
+
+\noindent
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+\rule{4cm}{0.4pt}\\
+Internal Examiner\\
+Name \& Designation\\
+Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+\rule{4cm}{0.4pt}\\
+External Examiner (if any)\\
+Name \& Designation\\
+Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\centering
+\rule{4cm}{0.4pt}\\
+HoD / PRC Head\\
+\hodname\\
+Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{minipage}
+
+% ======================= SUBMISSION CHECKLIST ===============================
+\newpage
+\thispagestyle{empty}
+
+\begin{center}
+{\fontsize{16}{19}\selectfont \textbf{MINI PROJECT -- SUBMISSION CHECKLIST}}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent
+Ensure all items are complete before final submission.
+
+\vspace{0.5cm}
+
+\noindent
+\begin{longtable}{|c|p{9.5cm}|c|p{3cm}|}
+\hline
+\textbf{S.No.} & \textbf{Checklist Item} & \textbf{Done (\checkmark)} & \textbf{Remarks} \\
+\hline
+\endhead
+1  & Title page formatted as per institute guidelines            & & \\ \hline
+2  & Candidate's Declaration signed and dated                    & & \\ \hline
+3  & Certificate signed by Supervisor(s) and HoD                 & & \\ \hline
+4  & Abstract written (max 1 page)                               & & \\ \hline
+5  & Table of Contents with correct page numbers                 & & \\ \hline
+6  & List of Tables included (if tables used)                    & & \\ \hline
+7  & List of Figures included (if figures used)                  & & \\ \hline
+8  & Abbreviations list included (if applicable)                 & & \\ \hline
+9  & All chapters follow formatting specs (font, spacing, margins) & & \\ \hline
+10 & Figures/Tables cited in text with correct captions           & & \\ \hline
+11 & Equations numbered and formatted using Equation Editor       & & \\ \hline
+12 & References cited in text match reference list exactly        & & \\ \hline
+13 & Reference list has all required details (journal, vol, pp, year) & & \\ \hline
+14 & Appendices attached (code, data sheets, publications, etc.) & & \\ \hline
+15 & Plagiarism check completed (attach report if required)      & & \\ \hline
+16 & Spiral/soft bound copy submitted for evaluation             & & \\ \hline
+17 & Final spiral-bound copy submitted after approval            & & \\ \hline
+18 & Digital PDF copy submitted on institute portal              & & \\ \hline
+\end{longtable}
+
+\vspace{1cm}
+
+\noindent
+Student Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\hfill Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\vspace{0.5cm}
+
+\noindent
+Supervisor Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\hfill Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\end{document}
